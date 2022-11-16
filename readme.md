@@ -132,4 +132,5 @@
 ![222222](https://user-images.githubusercontent.com/73810834/202126495-a63a1b51-d3ba-4c7b-990b-93b5261ccba1.png)
 
 4. 프로젝트 시나리오
-![senario](https://lab.ssafy.com/s08/a19/14_finalproject/pair10_jangsookyoung_ahnryeonhwan/-/blob/main/senario.md)
+
+[senario](https://lab.ssafy.com/s08/a19/14_finalproject/pair10_jangsookyoung_ahnryeonhwan/-/blob/main/senario.md)
