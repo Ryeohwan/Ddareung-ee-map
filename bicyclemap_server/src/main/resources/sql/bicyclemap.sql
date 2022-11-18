@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `board`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `board` (
   `articleno` int NOT NULL AUTO_INCREMENT,
-  `originNo` int default NULL,
+  `originNo` int DEFAULT NULL,
   `id` varchar(45) DEFAULT NULL,
   `subject` text,
   `content` text,
