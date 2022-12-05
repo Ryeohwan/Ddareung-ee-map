@@ -1,188 +1,65 @@
-# 서울 따릉이 여행 설계서
-                                서울 19반 10조
-                                장수경 안려환
+# ⭐️ Spring-Boot-Vue Project
 
-1. 요구사항 분석서
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-c3ow">순번</th>
-    <th class="tg-c3ow">요구사항명</th>
-    <th class="tg-c3ow">요구사항 상세</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-c3ow" colspan="3" style="border-color:inherit;text-align:center;vertical-align:top">기능적 요구사항</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F01</td>
-    <td class="tg-c3ow">따릉이 대여소 정보 수집</td>
-    <td class="tg-c3ow">공공데이터 포털: 따릉이 데이터 가공 후 DB저장</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F02</td>
-    <td class="tg-c3ow">공원 정보 수집</td>
-    <td class="tg-c3ow">공공데이터 포털: 
-서울시 주요 공원현황 데이터 가공 후 DB저장</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F03</td>
-    <td class="tg-c3ow">맛집 정보 수집</td>
-    <td class="tg-c3ow">공공데이터 포털: 서울시 관광 맛집 데이터 가공 후 DB저장</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F04</td>
-    <td class="tg-c3ow">관광 명소 정보 수집</td>
-    <td class="tg-c3ow">공공데이터 포털: 서울시 관광 명소 데이터 가공 후 DB저장</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F05</td>
-    <td class="tg-c3ow">대여소 검색</td>
-    <td class="tg-c3ow">구/동별 따릉이 대여소 검색 결과 데이터 제공</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F06</td>
-    <td class="tg-c3ow">관심 지역 상세</td>
-    <td class="tg-c3ow">지도에 표시된 마커로 관련 정보 조회 및 관심지역 추가기능</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F07</td>
-    <td class="tg-c3ow">게시판 글 추가/수정/삭제</td>
-    <td class="tg-c3ow">게시판 글쓰기 및 수정, 삭제와 첨부파일 업로드</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F08</td>
-    <td class="tg-c3ow">게시글 좋아요 기능</td>
-    <td class="tg-c3ow">회원의 게시글 좋아요 DB 적용</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F09</td>
-    <td class="tg-c3ow">게시글 댓글기능</td>
-    <td class="tg-c3ow">게시글 댓글 작성/수정/삭제 기능</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F10</td>
-    <td class="tg-c3ow">회원가입기능</td>
-    <td class="tg-c3ow">회원 정보를 입력받아 유효성 검사 후 DB저장</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F11</td>
-    <td class="tg-c3ow">회원 정보 암호화기능</td>
-    <td class="tg-c3ow">sha-256 aes 를 사용한 암호화</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F12</td>
-    <td class="tg-c3ow">로그인/로그아웃</td>
-    <td class="tg-c3ow">DB 확인하여 유효성 검사 후 로그인 기능</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F13</td>
-    <td class="tg-c3ow">회원 정보수정/탈퇴</td>
-    <td class="tg-c3ow">식별된 사용자의 정보를 수정 혹은 탈퇴</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">F14</td>
-    <td class="tg-c3ow">회원 관심정보 삭제</td>
-    <td class="tg-c3ow">favorite 탭에서 사용자의 관심 지역 삭제</td>
-  </tr>
-  
-  <tr>
-    <td class="tg-c3ow" colspan="3" style="border-color:inherit;text-align:center;vertical-align:top">비기능적 요구사항</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">NF01</td>
-    <td class="tg-c3ow">공공데이터의 유효성</td>
-    <td class="tg-c3ow">사용자가 요구하는 데이터를 제공하여야 한다.</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">NF02</td>
-    <td class="tg-c3ow">응답성</td>
-    <td class="tg-c3ow">사용자가 불편함을 느끼지 않는 빠른 응답성이 필요하다.</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">NF03</td>
-    <td class="tg-c3ow">사용자 편의성</td>
-    <td class="tg-c3ow">직관적인 구성으로 모든 사용자가 어려움 없이 사용할 수 있어야 한다.</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">NF04</td>
-    <td class="tg-c3ow">가용성</td>
-    <td class="tg-c3ow">모든 환경에서 작동이 되어야 한다.</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">NF05</td>
-    <td class="tg-c3ow">보안성</td>
-    <td class="tg-c3ow">사용자의 민감한 정보가 탈취되어서는 안된다.</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">NF05</td>
-    <td class="tg-c3ow">MSA</td>
-    <td class="tg-c3ow">REST API 적용</td>
-  </tr>
-</tbody>
-</table>
+## Pages
 
+We have implemented some basic pages, so you can see our template in action.
 
-2. 요구사항 정의서 (Usecase Diagram)
-![11111](https://user-images.githubusercontent.com/73810834/202123150-95fed187-c1ef-4c3d-82c8-e9af9cc76fc6.PNG)
+- sample
 
+## Installation
 
-3. 테이블 구조도(ERD)
-![222222](https://user-images.githubusercontent.com/73810834/202126495-a63a1b51-d3ba-4c7b-990b-93b5261ccba1.png)
+1. Download Vue Bootstrap Template
 
+2. Install NVM
 
+- Download NVM setUp.zip
+- https://github.com/coreybutler/nvm-windows/releases
 
-# 서울 따릉이 여행 시나리오
+3. Down grade your node version
 
-1. 메인 화면
+4. check your node version
 
-![image](https://user-images.githubusercontent.com/73810834/202127229-c63f0da4-e9f8-4108-ba5c-29bdafd30561.png)
+```shell
+node -v
+```
 
-2. 로그인 이후 map
+5. Install right version
 
-![image](https://user-images.githubusercontent.com/73810834/202127364-9d07ca72-d401-4244-8dd7-ba27a2f8f06f.png)
-- 서울시의 구와 동을 설정하면 해당 지역으로 이동되며, 주변의 따릉이 대여소의 위치가 카카오맵 마커로 표시된다.
+```shell
+nvm install 14.21.1
+```
 
-3. map 에서 마커 선택
+6. Change to right version
 
-![image](https://user-images.githubusercontent.com/73810834/202127819-657f16f5-9c7b-438c-b627-d95f25659c7d.png)
-- 마커를 선택하면 반경을 입력받는 input 태그가 나타나고 사용자의 입력을 기다린다.
+```shell
+nvm use 14.21.1
+```
 
+7. Check your version
 
-4. 반경입력 후
+```shell
+node -v
+```
 
-![image](https://user-images.githubusercontent.com/73810834/202128141-5dacd2ec-cbba-4d05-be65-1c686587eb08.png)
-- 입력 반경 내의 관광 명소, 맛집, 공원이 나타나서 사용자가 선택할 수 있게 한다.
+8. In your VScode terminal
 
-5. 장소 마커 클릭 후
+```shell
+yarn
+```
 
-![image](https://user-images.githubusercontent.com/73810834/202128378-84d574f7-6a05-4f17-9185-0ffa8113a55a.png)
-- 해당 장소의 정보를 모달창으로 띄워 사용자에게 제공하고 추가하기 버튼으로 사용자의 관심 지역 리스트에 추가할 수 있다.
+9. run your project
 
-6. Favorite 화면
+```shell
+yarn serve
+```
 
-![image](https://user-images.githubusercontent.com/73810834/202128926-ff1d3795-71c5-4df6-b244-1b045998a3fd.png)
-- 사용자가 추가한 관심 지역 리스트를 보여주며 삭제버튼을 사용하여 삭제할 수 있다.
+10. What we used
+our schema name 
 
-7. 게시판
+```
+finalpj
+```
 
-![image](https://user-images.githubusercontent.com/73810834/202129224-9b7c46f3-c1ce-4875-85b0-e98c08399011.png)
-- 게시글의 작성 시간과 조회수를 확인할 수 있으며 글쓰기는 식별된 회원만 가능하다.
+## Project Description
 
-8. 게시판 글쓰기
-
-![image](https://user-images.githubusercontent.com/73810834/202130585-8360941e-7062-4065-bdcf-e7cdf07f7d29.png)
-- 파일 첨부가 가능하고 초기화 버튼을 누르면 input 칸이 전부 지워진다.
-
-9.  게시글 상세보기
-
-![image](https://user-images.githubusercontent.com/73810834/202129634-29846617-efe0-4164-9709-19deaec9f788.png)
-- 우측 상단에 게시글 좋아요 버튼이 있으며 작성자만 수정하기 버튼으로 게시글 수정 페이지로 넘어갈 수 있고 로그인된 사용자만 댓글 추가가 가능하다.
-
-10. 게시글 수정페이지
-
-![image](https://user-images.githubusercontent.com/73810834/202130214-d5613c84-252a-4ca7-b23f-c076d8417de4.png)
-- 수정과 삭제가 가능하면 파일 재첨부도 가능하다.
-
-
+[project description link](https://github.com/jenny6585/Spring-Boot-Vue-Project/blob/main/%EA%B8%B0%ED%9A%8D%EC%95%88.md)
